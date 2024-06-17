@@ -1,0 +1,64 @@
+\usetheme{moloch}
+% \useinnertheme{moloch}
+% \useoutertheme{moloch}
+% \usecolortheme{moloch}
+\molochset{block=fill}
+\usepackage{inter}    % font package
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor={mDarkTeal},    % this colour is defined by the moloch theme
+    filecolor={Maroon},
+    citecolor={airforceblue!110},
+    urlcolor={Blue},
+    pdfcreator={overleaf}
+}
+
+% \setlength{\leftmargini}{0em}
+\setbeamercolor{page number in head/foot}{fg=gray}
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{enumerate items}[circle]
+\setbeamertemplate{sections/subsections in toc}[circle]
+\setbeamertemplate{frametitle continuation}[from second][(cont.)]
+\setbeamercovered{transparent}
+\beamertemplatenavigationsymbolsempty
+
+
+\AtBeginSubsection[]{
+    {
+        \begin{frame}[noframenumbering, plain]
+            \subsectionpage
+        \end{frame}
+    }
+}
+
+
+\newcommand\Wider[2][4em]{%
+    \makebox[\linewidth][c]{%
+        \begin{minipage}{\dimexpr\textwidth+#1\relax}
+            % \raggedright#2
+            \centering#2
+        \end{minipage}%
+    }%
+}
+
+% \newenvironment{myitemize}{
+%     \begin{itemize}
+%         \vspace{1em}
+%         \setlength{\itemsep}{0.7\baselineskip}
+% }{
+%         \vspace{1em}
+%     \end{itemize}
+% }
+
+% \newenvironment{myenumerate}{
+%     \begin{enumerate}
+%         \vspace{1em}
+%         \setlength{\itemsep}{0.7\baselineskip}
+% }{
+%         \vspace{1em}
+%     \end{enumerate}
+% }

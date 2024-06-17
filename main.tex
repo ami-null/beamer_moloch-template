@@ -1,0 +1,76 @@
+% \documentclass[12pt, handout]{beamer}
+\documentclass[11pt, aspectratio=169]{beamer}
+\usepackage{bookmark}
+
+\usepackage{mathtools}
+% \usepackage{amsmath}    % already loaded by mathtools
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{upquote}
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}    % disable protrusion for tt fonts
+
+% \usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage{caption}
+% \usepackage{subcaption}
+% \usepackage{footnotehyper}
+
+\usepackage{appendixnumberbeamer}
+
+\usepackage{natbib}
+\bibliographystyle{apalike}
+
+\let\oldcite=\cite
+\renewcommand{\cite}[1]{\textcolor{airforceblue!110}{\oldcite{#1}}}
+\let\oldcitet=\citet
+\renewcommand{\citet}[1]{\textcolor{airforceblue!110}{\oldcitet{#1}}}
+\let\oldcitep=\citep
+\renewcommand{\citep}[1]{\textcolor{airforceblue!110}{\oldcitep{#1}}}
+
+
+\input{header}
+
+
+\title{A template based on the Moloch theme}
+\author{Md. Aminul Islam Shazid}
+\date{18 May 2024}
+
+\begin{document}
+	{
+		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
+		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
+
+		\begin{frame}
+			\titlepage
+		\end{frame}
+
+		\begin{frame}{Outline}
+			\tableofcontents[subsectionstyle=hide]
+		\end{frame}
+	}
+
+	\input{body}
+
+    \section*{Thank you.}
+
+    \appendix
+
+    \begingroup
+    \renewcommand{\section}[2]{}%
+    \begin{frame}[allowframebreaks]{References}
+        \def\bibfont{\footnotesize}
+        %\Wider{
+            \bibliography{refdb.bib}
+        %}
+    \end{frame}
+    \endgroup
+
+    \begin{frame}{Appendix}
+        test appendix frame
+    \end{frame}
+
+\end{document}
