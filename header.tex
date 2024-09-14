@@ -3,7 +3,22 @@
 % \useoutertheme{moloch}
 % \usecolortheme{moloch}
 \molochset{block=fill}
-\usepackage{inter}    % font package
+
+% \usepackage{inter}    % font package
+
+\usepackage{fontspec}
+\setmainfont{Inter}[RawFeature={+ss01, +ss02, +ss03, +dlig}]
+\setsansfont{Inter}[RawFeature={+ss01, +ss02, +ss03, +dlig}]
+
+% Inter font stylistic sets:
+% ss01: alternate digits for 3, 4, 6, 8
+% ss02: for disambiguation (with zero) in places like ill or O0
+% ss02: for disambiguation (without zero) in places like ill
+% ss03: round comma, quation marks
+
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}    % disable protrusion for tt fonts
+\usepackage{upquote}
 
 \definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
 
@@ -13,7 +28,7 @@
     filecolor={Maroon},
     citecolor={airforceblue!110},
     urlcolor={Blue},
-    pdfcreator={overleaf}
+    pdfcreator={latex}
 }
 
 % \setlength{\leftmargini}{0em}
