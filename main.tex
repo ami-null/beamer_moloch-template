@@ -1,32 +1,72 @@
 % \documentclass[12pt, handout]{beamer}
 \documentclass[11pt, aspectratio=169]{beamer}
-\usepackage{bookmark}
+\usetheme{moloch}
+\molochset{block=fill}
 
-\usepackage{mathtools}
-% \usepackage{amsmath}    % already loaded by mathtools
+\usepackage{fontspec}
+\setsansfont[
+    UprightFont = Inter-Light,          % Use light as the normal font weight
+    BoldFont = Inter-SemiBold,           % Use semibold for \textbf
+    ItalicFont = Inter-LightItalic,      % Light italic for \textit
+    BoldItalicFont = Inter-SemiBoldItalic % Semibold italic for \textbf with \textit
+]{Inter}[RawFeature={+ss01, +ss04, +ss03, +dlig, +tnum}]
+% Inter font stylistic sets:
+% ss01: alternate digits for 3, 4, 6, 8
+% ss02: for disambiguation (with zero) in places like "Ill" or "O0" etc
+% ss04: for disambiguation (without zero) in places like "Ill" etc
+% ss03: round comma, quation marks
+
+\usepackage{upquote}
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath}    % disable protrusion for tt fonts
+
+\usepackage{amsmath}
 \usepackage{amssymb}
-% \usepackage{amsfonts}
+\usepackage{unicode-math}
+\setmathfont{Erewhon Math}[Scale=1.14]
 
-
-% \usepackage{float}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{enumerate}
-\usepackage{caption}
-% \usepackage{subcaption}
-% \usepackage{footnotehyper}
-
-\usepackage{appendixnumberbeamer}
+\usepackage{hyperref}
+\pdfstringdefDisableCommands{\def\translate#1{#1}}
+\usepackage{bookmark}
+\usepackage{url}
 
 \usepackage{natbib}
+\usepackage{appendixnumberbeamer}
+\usepackage{enumerate}
+% \usepackage{enumitem}    % it is giving the error: TeX capacity exceeded
+% \usepackage{footnotehyper}
+\usepackage{graphicx}
+\usepackage{caption}
+% \usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{makecell}
+\usepackage{array}
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup\let\pm\relax}c<{\egroup}@{}}
+% \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}}% <--- removed @{}
+% https://tex.stackexchange.com/questions/567724/can-i-hide-a-table-column-with-the-s-type-from-siunitx
+% https://tex.stackexchange.com/questions/414143/hide-column-without-adding-whitespace-to-table
+
+
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+\hypersetup{
+    colorlinks=true,
+    linkcolor={mDarkTeal},    % this colour is defined by the moloch theme
+    filecolor={Maroon},
+    citecolor={airforceblue!120},
+    urlcolor={Blue},
+    pdfcreator={xelatex},
+    bookmarksopen=true,    % Expand bookmarks in the PDF
+    bookmarksnumbered=true % Include numbering in bookmarks
+}
+
 \bibliographystyle{apalike}
 
 \let\oldcite=\cite
-\renewcommand{\cite}[1]{\textcolor{airforceblue!110}{\oldcite{#1}}}
+\renewcommand{\cite}[1]{\textcolor{airforceblue!120}{\oldcite{#1}}}
 \let\oldcitet=\citet
-\renewcommand{\citet}[1]{\textcolor{airforceblue!110}{\oldcitet{#1}}}
+\renewcommand{\citet}[1]{\textcolor{airforceblue!120}{\oldcitet{#1}}}
 \let\oldcitep=\citep
-\renewcommand{\citep}[1]{\textcolor{airforceblue!110}{\oldcitep{#1}}}
+\renewcommand{\citep}[1]{\textcolor{airforceblue!120}{\oldcitep{#1}}}
 
 
 \input{header}
@@ -36,8 +76,9 @@
 \author{Md. Aminul Islam Shazid}
 \date{18 May 2024}
 
+
 \begin{document}
-	{
+    {
 		\setbeamertemplate{footline}{}    % NO FOOTLINE FOR THESE TWO FRAMES
 		\addtocounter{framenumber}{-2}    % not counting the title page and the outline in frame numbers
 
